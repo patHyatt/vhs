@@ -1,0 +1,10 @@
+<div>
+    <img class="img-thumbnail" [src]="movie.posterUrl" 
+    src-fallback="{{placeholder}}" loading="lazy" alt="{{movie.title}} - movie poster" />
+</div>
+<div class="text-truncate lead" [title]="movie.title">{{ movie.title }}</div>
+<small class="text-body-secondary">
+    Rated {{ movie.rating || 'Not Rated' }} | Duration {{ movie.duration | duration }} | Ratings {{movie.ratingValue}}
+</small>
+<div *ngIf="movie.summary" [title]="movie.summary">{{ movie.summary }}</div>
+<div *ngIf="!movie.summary" class="fst-italic">No summary available</div>

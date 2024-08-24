@@ -1,0 +1,45 @@
+<main [class.loading]="LoadingService.loading$ | async">
+  <app-television-static [ngClass]="(LoadingService.loading$ | async) ? 'd-block' : 'd-none'"></app-television-static>
+
+  <section class="position-absolute d-flex">
+    <section class="px-2">
+      <app-cassette title="Very Hip Search"></app-cassette>
+      <input #terms class="form-control mb-1" type="text" placeholder="Search or die..."
+             [ngModel]="SearchService.query.term" (keyup)="SearchService.search(terms.value, '')" />
+      <app-genre-select></app-genre-select>
+
+      <section *ngIf="results" class="px-2">
+        Now Showing <code>{{ results.totalResults| number }}</code> movies
+      </section>
+    </section>
+
+    <section *ngIf="results" class="container-fluid px-2 pt-5">
+      <div class="row">
+        @for (movie of results.data; track movie.id) {
+        <app-movie class="col-4" [movie]="movie">
+        </app-movie>
+        } @empty {
+        <h1 class="text-muted pt-5">Sorry. Our bins are empty for <code>{{ SearchService.query.term }}</code></h1>
+        <p>Maybe try again later or search for something we have...</p>
+        }
+      </div>
+
+      <nav>
+        <ul class="pagination justify-content-center" *ngIf="results.totalPages > 1">
+          <li class="page-item" [class.disabled]="SearchService.query.page === 1">
+            <a class="page-link" (click)="SearchService.pagePrevious()" href="#">Previous</a>
+          </li>
+          <li class="page-item disabled">
+            <a class="page-link">
+              {{SearchService.query.page}} / {{results.totalPages}}
+            </a>
+          </li>
+          <li class="page-item" [class.disabled]="SearchService.query.page === results.totalPages">
+            <a class="page-link" (click)="SearchService.pageNext()" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  </section>
+
+</main>

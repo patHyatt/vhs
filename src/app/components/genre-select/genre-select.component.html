@@ -1,0 +1,11 @@
+<section>
+    <div class="form-floating">
+        <select class="form-select" id="genre-select" [ngModel]="genre" (ngModelChange)="set($event)">
+            <option selected value="">All</option>
+            <option *ngFor="let genre of genres; trackBy: trackByGenre" [value]="genre">
+                {{genre}}
+            </option>
+        </select>
+        <label for="genre-select">Genre</label>
+    </div>
+</section>
