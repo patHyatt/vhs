@@ -12,7 +12,7 @@ Run `npm run build` or `ng build` to build the project. The build artifacts will
 
 
 ## Highlight(s)
-1. Inspecting the API, it appears there was no way to obtain all movie information in one request. This inspired the `SearchService` to the wrapping of the Movie API's endpoints for enriching the initial query with full movie details.
+1. Inspecting the API, it appears there was no way to obtain all movie information in one request. This inspired the `SearchService` to the wrapping of the Movie API's endpoints for enriching the initial query with full movie details, and total result counts.
     - After figuring out and some refactoring, it made the `app-component` pretty minimal
     - I think the Graph API may be better suited to reduce the chattiness going on. I almost ran this path, but have not worked with it before so did not want to go down an unknown path.
 2. SVG's are the best. They're beautiful, easy to work with, and manipulate with CSS.
