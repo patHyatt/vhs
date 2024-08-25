@@ -1,7 +1,7 @@
 <main [class.loading]="LoadingService.loading$ | async">
   <app-television-static [ngClass]="(LoadingService.loading$ | async) ? 'd-block' : 'd-none'"></app-television-static>
 
-  <section class="position-absolute d-flex">
+  <section class="position-absolute d-flex flex-xl-row flex-column">
     <section class="px-2">
       <app-cassette title="Very Hip Search"></app-cassette>
       <input #terms class="form-control mb-1" type="text" placeholder="Search or die..."
@@ -14,7 +14,7 @@
     </section>
 
     <section *ngIf="results" class="container-fluid px-2 pt-5">
-      <div class="row">
+      <div class="row justify-content-center">
         @for (movie of results.data; track movie.id) {
         <app-movie class="col-4" [movie]="movie">
         </app-movie>
