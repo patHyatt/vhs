@@ -12,7 +12,7 @@ Run `npm run build` or `ng build` to build the project. The build artifacts will
 
 
 ## Highlight(s)
-1. Inspecting the API, it appears there was no way to obtain all movie information in one request. This inspired the `SearchService` to the wrapping of the Movie API's endpoints for enriching the initial query with full movie details.
+1. Inspecting the API, it appears there was no way to obtain all movie information in one request. This inspired the `SearchService` to the wrapping of the Movie API's endpoints for enriching the initial query with full movie details, and total result counts.
     - After figuring out and some refactoring, it made the `app-component` pretty minimal
     - I think the Graph API may be better suited to reduce the chattiness going on. I almost ran this path, but have not worked with it before so did not want to go down an unknown path.
 2. SVG's are the best. They're beautiful, easy to work with, and manipulate with CSS.
@@ -26,3 +26,4 @@ Run `npm run build` or `ng build` to build the project. The build artifacts will
 - Likely rework to use GraphAPI to reduce the number of network requests currently needed with the REST approach
 - "Pre-recording" features where there would be groups of movies by a theme. When a user clicks, they are presented similar to the search but only for those movies. Think a "Arnold" pre-recording, where it's a handful of Arnold Schwarzenegger movies, like Predator, The Running Man, Terminator, etc
 - With location permission, display movies popular in your country
+- Add in dropdown for # of items per page, and/or auto adjust that based on client size.
